@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
@@ -64,15 +66,15 @@ const Footer = () => {
           <div>
             <h3 className="mb-4 text-lg font-semibold text-foreground">İletişim</h3>
             <ul className="space-y-4">
-              <li className="flex items-start space-x-3">
+              <li className="flex items-start space-x-3 footer-contact-item">
                 <MapPin className="h-5 w-5 shrink-0 text-muted-foreground" />
                 <span className="text-muted-foreground">Örnek Mahallesi, Örnek Sokak No:123 Ankara/Türkiye</span>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center space-x-3 footer-contact-item">
                 <Phone className="h-5 w-5 shrink-0 text-muted-foreground" />
                 <span className="text-muted-foreground">+90 (312) 123 45 67</span>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center space-x-3 footer-contact-item">
                 <Mail className="h-5 w-5 shrink-0 text-muted-foreground" />
                 <span className="text-muted-foreground">info@anadoluzemin.com</span>
               </li>
@@ -89,7 +91,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-primary"
               >
-                <Facebook className="h-6 w-6" />
+                <Facebook className="h-6 w-6 footer-social-icon" />
               </a>
               <a
                 href="https://instagram.com"
@@ -97,7 +99,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-primary"
               >
-                <Instagram className="h-6 w-6" />
+                <Instagram className="h-6 w-6 footer-social-icon" />
               </a>
               <a
                 href="https://linkedin.com"
@@ -105,16 +107,37 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-primary"
               >
-                <Linkedin className="h-6 w-6" />
+                <Linkedin className="h-6 w-6 footer-social-icon" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border pt-8 text-center">
+        <div className="mt-8 border-t border-border pt-8 text-center footer-copyright">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Anadolu Zemin. Tüm hakları saklıdır.
           </p>
+          
+          {/* Back to top button */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="back-to-top no-print"
+            aria-label="Sayfanın başına dön"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m18 15-6-6-6 6" />
+            </svg>
+          </button>
         </div>
       </div>
     </footer>

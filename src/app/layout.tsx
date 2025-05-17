@@ -18,12 +18,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" suppressHydrationWarning>
+    <html lang="tr" suppressHydrationWarning className="scroll-smooth">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          {/* Skip to content link for accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-background focus:px-4 focus:py-2 focus:text-primary focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          >
+            İçeriğe atla
+          </a>
+
+          <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
+            <Header />
+            <main id="main-content" className="min-h-[calc(100vh-9rem)] py-4 sm:py-6 md:py-8">
+              <div className="container">
+                {children}
+              </div>
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
