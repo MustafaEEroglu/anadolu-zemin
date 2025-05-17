@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { ThemeProvider } from "@/context/theme-provider";
+import { FaWhatsapp } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,6 +39,17 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+
+          {/* WhatsApp Button */}
+          <a
+            href="https://wa.me/905312151617"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-4 left-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 dark:bg-[#128C7E] dark:focus:ring-[#128C7E]"
+            aria-label="WhatsApp ile bize ulaşın"
+          >
+            <FaWhatsapp className="h-8 w-8" />
+          </a>
         </ThemeProvider>
       </body>
     </html>

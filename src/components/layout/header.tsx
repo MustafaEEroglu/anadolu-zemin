@@ -11,10 +11,10 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" role="banner">
-      <div className="container flex h-16 items-center" aria-label="Ana navigasyon">
+      <div className="container flex h-17 items-center" aria-label="Ana navigasyon">
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="Anadolu Zemin - Ana Sayfa"
             width={150}
             height={40}

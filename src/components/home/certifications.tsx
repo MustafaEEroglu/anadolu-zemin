@@ -20,18 +20,25 @@ const Certifications = () => {
               key={cert.name}
               className="flex flex-col items-center justify-center"
             >
-              <div className="relative mb-4 h-24 w-40">
-                <Image
-                  src={cert.logo}
-                  alt={cert.name}
-                  fill
-                  className="object-contain"
-                />
+              <div className="relative mb-2 h-20 w-32 md:h-24 md:w-40">
+                <div className="relative h-full w-full flex items-center">
+                  <Image
+                    src={cert.logo}
+                    alt={cert.name}
+                    width={160}
+                    height={80}
+                    className="object-contain hover:scale-105 transition-transform dark:invert dark:brightness-0 dark:filter mx-auto"
+                  />
+                </div>
               </div>
-              <h3 className="text-center text-sm font-medium text-foreground">
-                {cert.name}
-              </h3>
-              <p className="text-center text-xs text-muted-foreground">{cert.description}</p>
+              <div className="px-2">
+                <h3 className="text-center text-sm font-medium text-foreground mb-1">
+                  {cert.name}
+                </h3>
+                <p className="text-center text-xs text-muted-foreground leading-tight">
+                  {cert.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -44,23 +51,23 @@ const certifications = [
   {
     name: "TSE",
     description: "TS EN ISO/IEC 17025 Akreditasyonu",
-    logo: "https://placehold.co/200x100/FFFFFF/1a1a1a?text=TSE",
+    logo: "/tse.png",
   },
   {
     name: "TÜRKAK",
     description: "AB-0001-T Akreditasyon",
-    logo: "https://placehold.co/200x100/FFFFFF/1a1a1a?text=TURKAK",
+    logo: "/turkak.png",
   },
   {
     name: "ISO 9001",
     description: "Kalite Yönetim Sistemi",
-    logo: "https://placehold.co/200x100/FFFFFF/1a1a1a?text=ISO+9001",
+    logo: "/iso9001.png",
   },
   {
     name: "CE",
     description: "Avrupa Standartlarına Uygunluk",
-    logo: "https://placehold.co/200x100/FFFFFF/1a1a1a?text=CE",
+    logo: "/ce.png",
   },
 ];
 
-export default Certifications; 
+export default Certifications;
