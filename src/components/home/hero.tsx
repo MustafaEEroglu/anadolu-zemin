@@ -3,64 +3,52 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="relative">
-      {/* Hero Background */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop"
-          alt="Zemin Etüdü"
-          fill
-          className="object-cover brightness-50"
-          priority
-        />
-      </div>
-
-      {/* Hero Content */}
-      <div className="relative z-10">
-        <div className="container flex min-h-[600px] flex-col items-center justify-center py-20 text-center text-white">
-          <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-            Güvenli Yapıların Temelinde
-            <br />
-            <span className="text-yellow-400">Anadolu Zemin</span> Var
-          </h1>
-          <p className="mb-8 max-w-2xl text-lg text-gray-200">
-            30 yılı aşkın tecrübemiz, uzman kadromuz ve modern ekipmanlarımızla
-            zemin etüdü, sondaj ve laboratuvar hizmetlerinde güvenilir çözümler
-            sunuyoruz.
-          </p>
-          <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-            <Link
-              href="/iletisim"
-              className="rounded-full bg-yellow-500 px-8 py-3 font-semibold text-gray-900 transition-colors hover:bg-yellow-400"
-            >
-              Hizmet Al
-            </Link>
-            <Link
-              href="/raporlar"
-              className="rounded-full border-2 border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-gray-900"
-            >
-              Rapor Talep Et
-            </Link>
+    <div className="relative bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative z-10 pb-8 bg-background sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <div className="pt-10 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+            <div className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+              <div className="sm:text-center lg:text-left">
+                <h1 className="text-4xl tracking-tight font-extrabold text-foreground sm:text-5xl md:text-6xl">
+                  <span className="block">Güvenli Yapıların</span>
+                  <span className="block text-primary">Temelinde Biz Varız</span>
+                </h1>
+                <p className="mt-3 text-base text-muted-foreground sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                  30 yılı aşkın tecrübemiz, uzman kadromuz ve modern ekipmanlarımızla
+                  zemin etüdü, sondaj ve laboratuvar hizmetlerinde güvenilir çözümler sunuyoruz.
+                </p>
+                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                  <div className="rounded-md shadow">
+                    <Link
+                      href="/iletisim"
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 md:py-4 md:text-lg md:px-10"
+                    >
+                      Hizmet Al
+                    </Link>
+                  </div>
+                  <div className="mt-3 sm:mt-0 sm:ml-3">
+                    <Link
+                      href="/raporlar"
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-secondary-foreground bg-secondary hover:bg-secondary/80 md:py-4 md:text-lg md:px-10"
+                    >
+                      Rapor Talep Et
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce">
-        <div className="flex flex-col items-center">
-          <span className="mb-2 text-sm font-medium text-white">Aşağı Kaydır</span>
-          <svg
-            className="h-6 w-6 text-white"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <Image
+          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop"
+          alt="Zemin Etüdü"
+          width={1920}
+          height={1080}
+          priority
+        />
       </div>
     </div>
   );

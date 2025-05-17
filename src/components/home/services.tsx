@@ -59,7 +59,7 @@ const services = [
     description:
       "Yapı güvenliği için detaylı zemin araştırması ve analizi hizmetleri",
     icon: Mountain,
-    href: "/hizmetler/zemin-etüdü",
+    href: "/hizmetler/zemin-etudu",
   },
   {
     title: "Sondaj",

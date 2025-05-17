@@ -40,7 +40,7 @@ const Footer = () => {
             <h3 className="mb-4 text-lg font-semibold text-foreground">Hizmetler</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/hizmetler/zemin-etüdü" className="footer-link">
+                <Link href="/hizmetler/zemin-etudu" className="footer-link">
                   Zemin Etüdü
                 </Link>
               </li>
