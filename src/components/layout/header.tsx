@@ -18,7 +18,7 @@ const Header = () => {
           />
         </Link>
 
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex flex-1 items-center justify-end space-x-6">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>

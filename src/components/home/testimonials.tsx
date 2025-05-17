@@ -21,13 +21,13 @@ const Testimonials = () => {
   }, [emblaApi]);
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="py-16 border-t border-border/50">
       <div className="container">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900">
+          <h2 className="mb-4 text-3xl font-bold text-foreground">
             Müşteri Referanslarımız
           </h2>
-          <p className="mx-auto max-w-2xl text-gray-600">
+          <p className="mx-auto max-w-2xl text-muted-foreground">
             Müşterilerimizin memnuniyeti bizim için en önemli başarı göstergesidir.
           </p>
         </div>
@@ -39,13 +39,13 @@ const Testimonials = () => {
                 key={index}
                 className="flex-[0_0_100%] px-4 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
               >
-                <div className="h-full rounded-lg bg-white p-6 shadow-lg">
+                <div className="h-full rounded-lg bg-card p-6 shadow-lg">
                   <div className="mb-4 flex text-yellow-500">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-current" />
                     ))}
                   </div>
-                  <p className="mb-4 text-gray-600">{testimonial.comment}</p>
+                  <p className="mb-4 text-muted-foreground">{testimonial.comment}</p>
                   <div className="flex items-center">
                     <div className="mr-4 h-12 w-12 overflow-hidden rounded-full bg-gray-200">
                       <img
@@ -55,10 +55,10 @@ const Testimonials = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">
+                      <h4 className="font-semibold text-foreground">
                         {testimonial.name}
                       </h4>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-muted-foreground">
                         {testimonial.company}
                       </p>
                     </div>

@@ -6,10 +6,10 @@ const LatestReports = () => {
     <section className="py-16">
       <div className="container">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900">
+          <h2 className="mb-4 text-3xl font-bold text-foreground">
             Son Raporlar ve Duyurular
           </h2>
-          <p className="mx-auto max-w-2xl text-gray-600">
+          <p className="mx-auto max-w-2xl text-muted-foreground">
             En son tamamlanan projelerimiz ve önemli duyurularımız
           </p>
         </div>
@@ -18,21 +18,21 @@ const LatestReports = () => {
           {reports.map((report) => (
             <div
               key={report.title}
-              className="group rounded-lg border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="group rounded-lg border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="mb-4 flex items-center justify-between">
-                <span className="rounded-full bg-yellow-100 px-3 py-1 text-sm font-medium text-yellow-800">
+                <span className="rounded-full bg-yellow-100 px-3 py-1 text-sm font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
                   {report.category}
                 </span>
-                <time className="text-sm text-gray-500">{report.date}</time>
+                <time className="text-sm text-muted-foreground">{report.date}</time>
               </div>
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">
+              <h3 className="mb-2 text-xl font-semibold text-foreground">
                 {report.title}
               </h3>
-              <p className="mb-4 text-gray-600">{report.description}</p>
+              <p className="mb-4 text-muted-foreground">{report.description}</p>
               <Link
                 href={report.href}
-                className="inline-flex items-center text-yellow-500 hover:text-yellow-600"
+                className="inline-flex items-center text-yellow-500 hover:text-yellow-600 dark:text-yellow-400 dark:hover:text-yellow-300"
               >
                 <FileText className="mr-2 h-4 w-4" />
                 <span className="text-sm font-medium">PDF İndir</span>
@@ -44,7 +44,7 @@ const LatestReports = () => {
         <div className="mt-12 text-center">
           <Link
             href="/raporlar"
-            className="inline-flex items-center rounded-full border-2 border-yellow-500 px-6 py-2 font-semibold text-yellow-500 transition-colors hover:bg-yellow-500 hover:text-white"
+            className="inline-flex items-center rounded-full border-2 border-yellow-500 px-6 py-2 font-semibold text-yellow-500 transition-colors hover:bg-yellow-500 hover:text-white dark:border-yellow-400 dark:text-yellow-400 dark:hover:bg-yellow-400 dark:hover:text-foreground"
           >
             Tüm Raporları Görüntüle
             <svg

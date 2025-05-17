@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const Certifications = () => {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="py-16 border-t border-border/50">
       <div className="container">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900">
+          <h2 className="mb-4 text-3xl font-bold text-foreground">
             Sertifikalı ve Akredite Hizmet
           </h2>
-          <p className="mx-auto max-w-2xl text-gray-600">
+          <p className="mx-auto max-w-2xl text-muted-foreground">
             Tüm hizmetlerimiz, ulusal ve uluslararası standartlara uygun olarak,
             akredite laboratuvarlarımızda gerçekleştirilmektedir.
           </p>
@@ -28,10 +28,10 @@ const Certifications = () => {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-center text-sm font-medium text-gray-900">
+              <h3 className="text-center text-sm font-medium text-foreground">
                 {cert.name}
               </h3>
-              <p className="text-center text-xs text-gray-500">{cert.description}</p>
+              <p className="text-center text-xs text-muted-foreground">{cert.description}</p>
             </div>
           ))}
         </div>

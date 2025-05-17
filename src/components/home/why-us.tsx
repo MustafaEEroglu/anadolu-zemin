@@ -2,11 +2,11 @@ import { Award, Cog, Users } from "lucide-react";
 
 const WhyUs = () => {
   return (
-    <section className="bg-gray-900 py-16 text-white">
+    <section className="py-16 border-t border-border/50">
       <div className="container">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold">Neden Biz?</h2>
-          <p className="mx-auto max-w-2xl text-gray-300">
+          <p className="mx-auto max-w-2xl text-muted-foreground">
             30 yıllık sektör tecrübemiz, uzman kadromuz ve modern ekipmanlarımızla
             fark yaratıyoruz.
           </p>
@@ -16,13 +16,13 @@ const WhyUs = () => {
           {reasons.map((reason) => (
             <div
               key={reason.title}
-              className="rounded-lg bg-gray-800 p-6 text-center"
+              className="rounded-lg bg-card p-6 text-center shadow-lg"
             >
-              <div className="mx-auto mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500 text-gray-900">
+              <div className="mx-auto mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500 text-gray-900 dark:bg-yellow-400 dark:text-gray-900">
                 <reason.icon className="h-6 w-6" />
               </div>
               <h3 className="mb-2 text-xl font-semibold">{reason.title}</h3>
-              <p className="text-gray-300">{reason.description}</p>
+              <p className="text-muted-foreground">{reason.description}</p>
             </div>
           ))}
         </div>
