@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { ThemeProvider } from "@/context/theme-provider";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-manrope'
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Anadolu Zemin | Profesyonel Zemin Etüdü ve Sondaj Hizmetleri",
@@ -23,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" suppressHydrationWarning>
-      <body className={`${manrope.variable} font-sans`}>
+      <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="min-h-screen">{children}</main>
