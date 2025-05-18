@@ -20,6 +20,24 @@ export default function ZeminEtuduPage() {
     }
   ];
 
+  const processSteps = [
+    {
+      title: "Saha Çalışmaları",
+      description: "Uzman ekiplerimiz tarafından saha çalışmaları yapılır ve numuneler alınır",
+      icon: "🏗️"
+    },
+    {
+      title: "Laboratuvar Testleri",
+      description: "Alınan numuneler laboratuvar ortamında detaylı şekilde analiz edilir",
+      icon: "🔬"
+    },
+    {
+      title: "Raporlama",
+      description: "Elde edilen veriler değerlendirilerek teknik rapor hazırlanır",
+      icon: "📄"
+    }
+  ];
+
   return (
     <div className="container py-12">
       <div className="text-center mb-12">
@@ -44,23 +62,54 @@ export default function ZeminEtuduPage() {
       </div>
 
       <div className="mt-12">
-        <Card className="p-6">
-          <h2 className="text-2xl font-semibold mb-4">Zemin Etüdü Süreci</h2>
-          <ul className="space-y-4">
-            <li className="flex items-start">
-              <span className="text-primary mr-2">•</span>
-              <span>Saha çalışmaları ve numune alımı</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-2">•</span>
-              <span>Laboratuvar testleri ve analizler</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-2">•</span>
-              <span>Veri değerlendirme ve raporlama</span>
-            </li>
-          </ul>
-        </Card>
+        <h2 className="text-2xl font-semibold mb-6 text-center">Zemin Etüdü Süreci</h2>
+        <div className="relative">
+          <div className="flex overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
+            {processSteps.map((step, i) => (
+              <Card
+                key={i}
+                className={`
+                  min-w-[85vw] sm:min-w-[280px] snap-center mx-2 p-6 rounded-xl
+                  bg-gradient-to-br from-background via-primary/5 to-background
+                  dark:from-gray-900 dark:to-gray-800
+                  shadow-lg hover:shadow-xl transition-all duration-500
+                  hover:-translate-y-2 hover:scale-[1.03]
+                  border border-border/50 hover:border-primary/30
+                  group
+                `}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="text-4xl mb-4">{step.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                  <div className="w-full">
+                    <button className="
+                      text-sm text-primary font-medium mb-2
+                      hover:text-primary/80 transition-colors
+                      flex items-center justify-center gap-1 mx-auto
+                    ">
+                      Detayları Göster
+                      <svg
+                        className="w-4 h-4 transition-transform group-hover:translate-y-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <div className="
+                      max-h-0 overflow-hidden
+                      group-focus-within:max-h-[100px]
+                      transition-all duration-500 ease-in-out
+                    ">
+                      <p className="text-muted-foreground text-sm px-2">{step.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

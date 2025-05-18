@@ -31,40 +31,66 @@ export default function LaboratuvarPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {tests.map((test, i) => (
-          <Card key={i} className="p-6">
+          <Card key={i} className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <div className="flex flex-col items-center text-center">
-              <div className="bg-primary/10 p-3 rounded-full mb-4 text-primary">
+              <div className="bg-primary/10 p-3 rounded-full mb-4 text-primary group-hover:bg-primary/20 transition-colors">
                 {test.icon}
               </div>
               <h3 className="text-xl font-semibold mb-2">{test.title}</h3>
-              <p className="text-muted-foreground">{test.description}</p>
+              <p className="text-muted-foreground px-4">{test.description}</p>
             </div>
           </Card>
         ))}
       </div>
 
       <div className="mt-12">
-        <Card className="p-6">
-          <h2 className="text-2xl font-semibold mb-4">Analiz Sürecimiz</h2>
-          <ul className="space-y-4">
-            <li className="flex items-start">
-              <span className="text-primary mr-2">•</span>
-              <span>Numune kabul ve kayıt</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-2">•</span>
-              <span>Ön hazırlık ve test prosedürleri</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-2">•</span>
-              <span>Testlerin gerçekleştirilmesi</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-2">•</span>
-              <span>Veri analizi ve raporlama</span>
-            </li>
-          </ul>
-        </Card>
+        <div className="relative">
+          <div className="flex overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent snap-x snap-mandatory md:grid md:grid-cols-4 md:gap-6 md:overflow-visible">
+            {[
+              {
+                title: "Numune Kabul",
+                description: "Numune kabul ve kayıt işlemleri",
+                icon: "📋"
+              },
+              {
+                title: "Ön Hazırlık",
+                description: "Ön hazırlık ve test prosedürleri",
+                icon: "🧫"
+              },
+              {
+                title: "Testler",
+                description: "Testlerin gerçekleştirilmesi",
+                icon: "🔍"
+              },
+              {
+                title: "Raporlama",
+                description: "Veri analizi ve raporlama süreçleri",
+                icon: "📈"
+              }
+            ].map((step, i) => (
+              <Card
+                key={i}
+                className="min-w-[85vw] sm:min-w-[280px] snap-center mx-2 p-6 rounded-xl bg-gradient-to-br from-background via-primary/5 to-background dark:from-gray-900 dark:to-gray-800 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] border border-border/50 hover:border-primary/30 group"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="text-4xl mb-4">{step.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                  <div className="w-full">
+                    <button className="text-sm text-primary font-medium mb-2 hover:text-primary/80 transition-colors flex items-center justify-center gap-1 mx-auto">
+                      Detayları Göster
+                      <svg className="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <div className="max-h-0 overflow-hidden group-focus-within:max-h-[100px] transition-all duration-500 ease-in-out">
+                      <p className="text-muted-foreground text-sm px-2">{step.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

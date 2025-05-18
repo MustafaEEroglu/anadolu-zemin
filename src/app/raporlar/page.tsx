@@ -116,13 +116,6 @@ export default function RaporlarPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredReports.map((report: Report) => (
           <Card key={report.id} className="p-6 hover:shadow-lg transition-all relative group">
-            {/* Floating download icon */}
-            <Link
-              href={report.pdfUrl}
-              className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white dark:bg-gray-700 p-2 rounded-full shadow-md"
-            >
-              <Download className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            </Link>
             
             <div className="flex justify-between items-start mb-3">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 hover:animate-[pulse_2s_ease-in-out_infinite]">

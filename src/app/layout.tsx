@@ -33,7 +33,7 @@ export default function RootLayout({
 
           <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
             <Header />
-            <main id="main-content" className="min-h-[calc(100vh-9rem)] py-4 md:py-6 lg:py-8">
+            <main id="main-content" className="min-h-[calc(100vh-9rem)] pt-32 pb-4 md:pt-36 md:pb-6 lg:pt-40 lg:pb-8">
               <div className="container px-4 sm:px-6 lg:px-8 max-w-screen-xl">
                 {children}
               </div>

@@ -33,14 +33,14 @@ const Header = () => {
   ];
   
   return (
-    <div className="fixed top-6 z-30 w-full">
+    <div className="fixed top-8 z-30 w-full mt-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
         <div className="flex h-16 items-center justify-between rounded-full bg-white/90 backdrop-blur-md shadow-lg px-6 py-2 dark:bg-background">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
               <Image
-                src="/logo.svg"
+                src="/logo.png"
                 alt="Anadolu Zemin"
                 width={150}
                 height={40}
