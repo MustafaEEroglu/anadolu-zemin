@@ -47,14 +47,14 @@ export default function ZeminEtuduPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {features.map((feature, i) => (
-          <Card key={i} className="p-6">
+          <Card key={i} className="p-4 sm:p-6">
             <div className="flex flex-col items-center text-center">
               <div className="bg-primary/10 p-3 rounded-full mb-4 text-primary">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
             </div>
           </Card>
@@ -69,7 +69,7 @@ export default function ZeminEtuduPage() {
               <Card
                 key={i}
                 className={`
-                  min-w-[85vw] sm:min-w-[280px] snap-center mx-2 p-6 rounded-xl
+                  min-w-[80vw] xs:min-w-[280px] sm:min-w-full snap-center mx-1 sm:mx-2 p-4 sm:p-6 rounded-xl
                   bg-gradient-to-br from-background via-primary/5 to-background
                   dark:from-gray-900 dark:to-gray-800
                   shadow-lg hover:shadow-xl transition-all duration-500
@@ -80,7 +80,7 @@ export default function ZeminEtuduPage() {
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="text-4xl mb-4">{step.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{step.title}</h3>
                   <div className="w-full">
                     <button className="
                       text-sm text-primary font-medium mb-2

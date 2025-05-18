@@ -15,17 +15,17 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <Link
               key={service.title}
               href={service.href}
-              className="group relative rounded-none border border-border bg-card p-6 shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl"
+              className="group relative rounded-none border border-border bg-card p-4 sm:p-6 shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="mb-4">
                 <service.icon className="h-12 w-12 text-primary" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold text-foreground">
+              <h3 className="mb-2 text-lg sm:text-xl font-semibold text-foreground">
                 {service.title}
               </h3>
               <p className="text-muted-foreground">{service.description}</p>
