@@ -4,7 +4,7 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <section className="relative bg-background">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-40">
+      <div className="mx-auto max-w-full sm:max-w-2xl md:max-w-4xl px-3 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 lg:py-40">
         <div className="flex flex-col items-center">
           <div className="text-center w-full px-2 sm:px-4">
             <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
