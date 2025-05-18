@@ -47,7 +47,7 @@ export default function ZeminEtuduPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {features.map((feature, i) => (
           <Card key={i} className="p-4 sm:p-6">
             <div className="flex flex-col items-center text-center">
@@ -64,7 +64,7 @@ export default function ZeminEtuduPage() {
       <div className="mt-12">
         <h2 className="text-2xl font-semibold mb-6 text-center">Zemin Etüdü Süreci</h2>
         <div className="relative">
-          <div className="flex overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {processSteps.map((step, i) => (
               <Card
                 key={i}
