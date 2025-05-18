@@ -71,10 +71,10 @@ export default function RaporlarPage() {
   };
 
   return (
-    <div className="container py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold mb-4">Raporlar</h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+    <div className="container py-8 sm:py-12">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Raporlar</h1>
+        <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
           Gerçekleştirdiğimiz projelere ait teknik raporlar ve analiz sonuçları
         </p>
       </div>
@@ -86,8 +86,8 @@ export default function RaporlarPage() {
       )}
 
       {/* Filters */}
-      <div className="flex flex-col md:flex-row gap-4 mb-8">
-        <div className="w-full md:w-48">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <div className="w-full sm:w-48">
           <label htmlFor="type-filter" className="block text-sm font-medium mb-1">Rapor Türü</label>
           <select
             id="type-filter"
@@ -100,7 +100,7 @@ export default function RaporlarPage() {
             ))}
           </select>
         </div>
-        <div className="w-full md:w-48">
+        <div className="w-full sm:w-48">
           <label htmlFor="sort" className="block text-sm font-medium mb-1">Sırala</label>
           <select 
             id="sort"
@@ -113,26 +113,26 @@ export default function RaporlarPage() {
       </div>
 
       {/* Reports Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filteredReports.map((report: Report) => (
-          <Card key={report.id} className="p-6 hover:shadow-lg transition-all relative group">
+          <Card key={report.id} className="p-4 sm:p-6 hover:shadow-lg transition-all relative group">
             
             <div className="flex justify-between items-start mb-3">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 hover:animate-[pulse_2s_ease-in-out_infinite]">
-                <Calendar className="w-3 h-3 mr-1" />
+              <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 hover:animate-[pulse_2s_ease-in-out_infinite]">
+                <Calendar className="w-3 h-3 mr-0.5 sm:mr-1" />
                 {report.date}
               </span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+              <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                 {report.type}
               </span>
             </div>
 
-            <h3 className="text-xl font-semibold mb-2">{report.title}</h3>
-            <p className="text-muted-foreground mb-4">{report.description}</p>
+            <h3 className="text-lg sm:text-xl font-semibold mb-2">{report.title}</h3>
+            <p className="text-sm sm:text-base text-muted-foreground mb-4">{report.description}</p>
             
-            <Link 
+            <Link
               href={report.pdfUrl}
-              className="mt-auto flex items-center justify-center w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors group"
+              className="mt-auto flex items-center justify-center w-full py-1.5 sm:py-2 px-3 sm:px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors group"
             >
               <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
               PDF İndir

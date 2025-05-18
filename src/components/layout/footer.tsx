@@ -6,8 +6,8 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react
 const Footer = () => {
   return (
     <footer className="border-t bg-background">
-      <div className="container py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {/* Kurumsal */}
           <div>
             <h3 className="mb-4 text-lg font-semibold text-foreground">Kurumsal</h3>
@@ -65,8 +65,8 @@ const Footer = () => {
           {/* İletişim */}
           <div>
             <h3 className="mb-4 text-lg font-semibold text-foreground">İletişim</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start space-x-3 footer-contact-item">
+            <ul className="space-y-2 sm:space-y-4">
+              <li className="flex items-start gap-2 sm:space-x-3 footer-contact-item">
                 <MapPin className="h-5 w-5 shrink-0 text-muted-foreground" />
                 <span className="text-muted-foreground">Örnek Mahallesi, Örnek Sokak No:123 Ankara/Türkiye</span>
               </li>
@@ -84,7 +84,7 @@ const Footer = () => {
           {/* Sosyal Medya */}
           <div>
             <h3 className="mb-4 text-lg font-semibold text-foreground">Sosyal Medya</h3>
-            <div className="flex space-x-4">
+            <div className="flex gap-3 sm:space-x-4">
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -113,7 +113,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border pt-8 text-center footer-copyright">
+        <div className="mt-6 sm:mt-8 border-t border-border pt-6 sm:pt-8 text-center footer-copyright">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Anadolu Zemin. Tüm hakları saklıdır.
           </p>

@@ -33,9 +33,9 @@ const Header = () => {
   ];
   
   return (
-    <div className="fixed top-8 z-30 w-full mt-4">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
-        <div className="flex h-16 items-center justify-between rounded-full bg-white/90 backdrop-blur-md shadow-lg px-6 py-2 dark:bg-background">
+    <div className="fixed top-2 sm:top-8 z-30 w-full mt-2 sm:mt-4">
+      <div className="container mx-auto px-2 sm:px-6 lg:px-8 max-w-screen-xl">
+        <div className="flex h-14 sm:h-16 items-center justify-between rounded-full bg-white/90 backdrop-blur-md shadow-lg px-3 sm:px-6 py-1 sm:py-2 dark:bg-background">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
@@ -44,7 +44,7 @@ const Header = () => {
                 alt="Anadolu Zemin"
                 width={150}
                 height={40}
-                className="h-10 w-auto dark:[&>svg]:text-white dark:[&>svg]:fill-current"
+                className="h-8 sm:h-10 w-auto dark:[&>svg]:text-white dark:[&>svg]:fill-current"
               />
             </Link>
           </div>
@@ -139,21 +139,21 @@ const Header = () => {
       {/* Mobile menu */}
       <div className={`md:hidden fixed inset-0 z-40 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-        <div className="fixed top-6 inset-x-4 rounded-2xl bg-white/90 backdrop-blur-md shadow-lg p-6 dark:bg-background max-w-screen-xl mx-auto">
-          <div className="flex justify-end mb-4">
+        <div className="fixed top-4 sm:top-6 inset-x-2 sm:inset-x-4 rounded-2xl bg-white/90 backdrop-blur-md shadow-lg p-4 sm:p-6 dark:bg-background max-w-screen-xl mx-auto">
+          <div className="flex justify-end mb-2 sm:mb-4">
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="p-1 sm:p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />
             </button>
           </div>
           
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col space-y-2 sm:space-y-4">
             <Link
               href="/"
-              className="px-4 py-2 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+              className="px-3 py-1.5 sm:px-4 sm:py-2 text-base sm:text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
               Anasayfa
@@ -161,7 +161,7 @@ const Header = () => {
 
             <div>
               <button
-                className="w-full flex justify-between items-center px-4 py-2 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                className="w-full flex justify-between items-center px-3 py-1.5 sm:px-4 sm:py-2 text-base sm:text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 Hizmetler
@@ -171,12 +171,12 @@ const Header = () => {
                 </svg>
               </button>
               
-              <div className={`pl-4 mt-2 space-y-2 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
+              <div className={`pl-3 sm:pl-4 mt-1 sm:mt-2 space-y-1 sm:space-y-2 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
                 {services.map((service) => (
                   <Link
                     key={service.title}
                     href={service.href}
-                    className="block px-4 py-2 text-base text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                    className="block px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {service.title}
