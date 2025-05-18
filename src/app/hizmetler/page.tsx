@@ -2,7 +2,7 @@ import { Drill, TestTube2, Waves, LayoutGrid, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const Card = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={`rounded-lg border bg-card shadow-sm p-6 ${className}`}>
+  <div className={`rounded-lg border bg-white dark:bg-gray-800 shadow-sm p-6 ${className}`}>
     {children}
   </div>
 );

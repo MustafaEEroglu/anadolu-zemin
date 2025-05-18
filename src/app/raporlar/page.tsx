@@ -14,7 +14,7 @@ interface Report {
 }
 
 const Card = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={`rounded-lg border bg-card shadow-sm ${className}`}>
+  <div className={`rounded-lg border bg-white dark:bg-gray-800 shadow-sm ${className}`}>
     {children}
   </div>
 );
@@ -91,7 +91,7 @@ export default function RaporlarPage() {
           <label htmlFor="type-filter" className="block text-sm font-medium mb-1">Rapor Türü</label>
           <select
             id="type-filter"
-            className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-card px-3 py-2"
+            className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2"
             onChange={handleFilterChange}
           >
             <option value="">Tüm Raporlar</option>
@@ -104,7 +104,7 @@ export default function RaporlarPage() {
           <label htmlFor="sort" className="block text-sm font-medium mb-1">Sırala</label>
           <select 
             id="sort"
-            className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-card px-3 py-2"
+            className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2"
           >
             <option value="newest">En Yeni</option>
             <option value="oldest">En Eski</option>

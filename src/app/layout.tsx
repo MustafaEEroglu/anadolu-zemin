@@ -12,13 +12,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Anadolu Zemin | Profesyonel Zemin Etüdü ve Sondaj Hizmetleri",
   description: "Anadolu Zemin olarak, profesyonel zemin etüdü, sondaj ve laboratuvar hizmetleri sunuyoruz. Deneyimli ekibimiz ve modern ekipmanlarımızla yanınızdayız.",
-};
-
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    minimumScale: 1,
+    maximumScale: 5,
+    userScalable: true
+  }
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" suppressHydrationWarning className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={`${inter.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {/* Skip to content link for accessibility */}
           <a
@@ -38,10 +38,13 @@ export default function RootLayout({
             İçeriğe atla
           </a>
 
-          <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
+          <div className="relative min-h-screen flex flex-col">
             <Header />
-            <main id="main-content" className="min-h-[calc(100vh-9rem)] pt-32 pb-4 md:pt-36 md:pb-6 lg:pt-40 lg:pb-8">
-              <div className="container px-3 sm:px-6 lg:px-8 max-w-full sm:max-w-screen-lg md:max-w-screen-xl">
+            <main 
+              id="main-content" 
+              className="flex-1 w-full px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16"
+            >
+              <div className="mx-auto w-full max-w-7xl">
                 {children}
               </div>
             </main>
