@@ -29,9 +29,9 @@ export default function JeofizikPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {methods.map((method, i) => (
-          <Card key={i} className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <Card key={i} className="p-4 sm:p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <div className="flex flex-col items-center text-center">
               <div className="bg-primary/10 p-3 rounded-full mb-4 text-primary group-hover:bg-primary/20 transition-colors">
                 {method.icon}
@@ -45,7 +45,7 @@ export default function JeofizikPage() {
 
       <div className="mt-12">
         <div className="relative">
-          <div className="flex overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent snap-x snap-mandatory md:grid md:grid-cols-4 md:gap-6 md:overflow-visible">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 title: "Saha Ölçümleri",
@@ -70,11 +70,11 @@ export default function JeofizikPage() {
             ].map((step, i) => (
               <Card
                 key={i}
-                className="min-w-[85vw] sm:min-w-[280px] snap-center mx-2 p-6 rounded-xl bg-gradient-to-br from-background via-primary/5 to-background dark:from-gray-900 dark:to-gray-800 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] border border-border/50 hover:border-primary/30 group"
+                className="w-full p-4 sm:p-6 rounded-xl dark:from-gray-900 dark:to-gray-800 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] border border-border/50 hover:border-primary/30 group"
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="text-4xl mb-4">{step.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{step.title}</h3>
                   <div className="w-full">
                     <button className="text-sm text-primary font-medium mb-2 hover:text-primary/80 transition-colors flex items-center justify-center gap-1 mx-auto">
                       Detayları Göster

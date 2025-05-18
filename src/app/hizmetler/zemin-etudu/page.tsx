@@ -70,7 +70,6 @@ export default function ZeminEtuduPage() {
                 key={i}
                 className={`
                   min-w-[80vw] xs:min-w-[280px] sm:min-w-full snap-center mx-1 sm:mx-2 p-4 sm:p-6 rounded-xl
-                  bg-gradient-to-br from-background via-primary/5 to-background
                   dark:from-gray-900 dark:to-gray-800
                   shadow-lg hover:shadow-xl transition-all duration-500
                   hover:-translate-y-2 hover:scale-[1.03]
