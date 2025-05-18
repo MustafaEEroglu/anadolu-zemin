@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Building2, Users, Target, Award, MapPin, Clock } from "lucide-react";
 
 const Card = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={`rounded-lg border bg-white dark:bg-gray-800 shadow-sm p-6 ${className}`}>
+  <div className={`rounded-lg border bg-card shadow-sm p-6 ${className}`}>
     {children}
   </div>
 );

@@ -85,6 +85,29 @@
   }
 }
 
+/* Mobile-first responsive rules */
+@media (max-width: 767px) {
+  .flex-container {
+    flex-wrap: wrap;
+  }
+  
+  .grid-item {
+    min-width: 100%;
+  }
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Flex wrapping utilities */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 @layer components {
   /* Layout */
   .container {

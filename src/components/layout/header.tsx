@@ -73,7 +73,7 @@ const Header = () => {
                   </svg>
                 </button>
 
-                <div className={`absolute z-10 left-0 mt-3 w-56 origin-top-left rounded-md bg-popover shadow-lg ring-1 ring-border focus:outline-none ${mobileMenuOpen ? 'block' : 'hidden'} group-hover:block dark:bg-gray-800/90`}>
+                <div className={`absolute z-10 left-0 mt-3 w-56 origin-top-left rounded-md bg-popover shadow-lg ring-1 ring-border focus:outline-none ${mobileMenuOpen ? 'block' : 'hidden'} group-hover:blockbg-card/90`}>
                   <div className="py-1">
                     {services.map((service) => (
                       <Link

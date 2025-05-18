@@ -12,13 +12,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Anadolu Zemin | Profesyonel Zemin Etüdü ve Sondaj Hizmetleri",
   description: "Anadolu Zemin olarak, profesyonel zemin etüdü, sondaj ve laboratuvar hizmetleri sunuyoruz. Deneyimli ekibimiz ve modern ekipmanlarımızla yanınızdayız.",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    minimumScale: 1,
-    maximumScale: 5,
-    userScalable: true
-  }
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
 };
 
 export default function RootLayout({
@@ -40,8 +40,8 @@ export default function RootLayout({
 
           <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
             <Header />
-            <main id="main-content" className="min-h-[calc(100vh-9rem)] pt-24 pb-4 sm:pt-28 md:pt-36 md:pb-6 lg:pt-40 lg:pb-8">
-              <div className="container px-3 sm:px-4 md:px-6 lg:px-8 max-w-screen">
+            <main id="main-content" className="min-h-[calc(100vh-9rem)] pt-32 pb-4 md:pt-36 md:pb-6 lg:pt-40 lg:pb-8">
+              <div className="container px-3 sm:px-6 lg:px-8 max-w-full sm:max-w-screen-lg md:max-w-screen-xl">
                 {children}
               </div>
             </main>
