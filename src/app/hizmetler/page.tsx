@@ -1,11 +1,16 @@
 import { Drill, TestTube2, Waves, LayoutGrid, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+import { Card } from "@/components/ui/card";
 
-const Card = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={`rounded-lg border bg-white dark:bg-gray-800 shadow-sm p-6 ${className}`}>
-    {children}
-  </div>
-);
+export const metadata: Metadata = {
+  title: "Hizmetlerimiz",
+  description: "Zemin etüdü, sondaj, laboratuvar analizleri ve jeofizik ölçüm hizmetleri. Modern ekipmanlar ve uzman kadromuzla yanınızdayız.",
+  openGraph: {
+    title: "Hizmetlerimiz | Anadolu Zemin",
+    description: "Kapsamlı zemin etüdü ve analiz hizmetleri",
+  }
+};
 
 export default function HizmetlerPage() {
   const services = [
@@ -48,7 +53,7 @@ export default function HizmetlerPage() {
         {services.map((service) => (
           <Card 
             key={service.href}
-            className="hover:shadow-lg transition-all hover:border-blue-500/30 h-full flex flex-col"
+            className="hover:shadow-lg transition-all hover:border-blue-500/30 h-full flex flex-col p-6"
           >
             <div className="flex flex-col items-center text-center flex-grow">
               <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mb-4 text-blue-600 dark:text-blue-400">

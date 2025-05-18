@@ -1,5 +1,15 @@
 import { BookText, ClipboardList, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Zemin Etüdü Hizmetleri",
+  description: "Profesyonel zemin etüdü hizmetleri, SPT testleri, presiyometre testleri ve detaylı arazi deneyleri ile güvenilir sonuçlar.",
+  openGraph: {
+    title: "Zemin Etüdü Hizmetleri | Anadolu Zemin",
+    description: "Profesyonel zemin etüdü hizmetleri ve kapsamlı zemin araştırmaları",
+  }
+};
 
 export default function ZeminEtuduPage() {
   const features = [

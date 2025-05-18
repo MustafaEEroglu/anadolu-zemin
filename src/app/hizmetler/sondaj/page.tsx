@@ -1,5 +1,15 @@
 import { Drill, HardHat, Layers } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sondaj Hizmetleri",
+  description: "Modern ekipmanlarla her türlü zeminde profesyonel sondaj hizmetleri. Derin sondaj, karot numune alma ve zemin araştırmaları.",
+  openGraph: {
+    title: "Sondaj Hizmetleri | Anadolu Zemin",
+    description: "Modern ekipmanlarla profesyonel sondaj hizmetleri",
+  }
+};
 
 export default function SondajPage() {
   const techniques = [

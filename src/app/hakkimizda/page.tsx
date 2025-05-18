@@ -2,12 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Building2, Users, Target, Award, MapPin, Clock } from "lucide-react";
-
-const Card = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={`rounded-lg border bg-white dark:bg-gray-800 shadow-sm p-6 ${className}`}>
-    {children}
-  </div>
-);
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function HakkimizdaPage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -89,28 +86,55 @@ export default function HakkimizdaPage() {
         </p>
       </div>
 
+      {/* Misyon ve Vizyon */}
+      <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <Card className="p-6 flex flex-col h-full">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="bg-emerald-100 dark:bg-emerald-900/30 p-3 rounded-full text-emerald-600 dark:text-emerald-400">
+              <Target className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl font-semibold">Misyonumuz</h2>
+          </div>
+          <p className="text-muted-foreground">
+            Müşterilerimize en kaliteli zemin araştırma hizmetlerini sunarak, yapıların güvenliğini sağlamak ve sektörde yenilikçi çözümler geliştirmek.
+          </p>
+        </Card>
+
+        <Card className="p-6 flex flex-col h-full">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="bg-violet-100 dark:bg-violet-900/30 p-3 rounded-full text-violet-600 dark:text-violet-400">
+              <Users className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl font-semibold">Vizyonumuz</h2>
+          </div>
+          <p className="text-muted-foreground">
+            Türkiye'nin en güvenilir zemin araştırma firması olmak ve uluslararası standartlarda hizmet veren bir marka haline gelmek.
+          </p>
+        </Card>
+      </div>
+
       {/* Timeline - Simplified centered version */}
       <div className="mb-16">
         <h2 className="text-2xl font-semibold mb-6 text-center">Tarihçemiz</h2>
         <div className="flex justify-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-6xl">
             {timeline.map((item, i) => (
               <div 
                 key={i} 
                 ref={el => { itemsRef.current[i] = el; }}
               >
-                <Card className="h-full">
-                  <div className="flex flex-col items-center text-center">
-                    <div className={`p-3 rounded-full mb-4 transition-all duration-300 ${
+                <Card className="h-full p-6">
+                  <div className="flex flex-col items-center text-center space-y-3">
+                    <div className={`p-3 rounded-full mb-2 transition-all duration-300 ${
                       i <= activeIndex 
                         ? 'bg-blue-600 text-white dark:bg-blue-400 dark:text-gray-900'
-                        : 'bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'
+                        : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400'
                     }`}>
                       {item.icon}
                     </div>
-                    <h3 className="text-xl font-semibold mb-1">{item.year}</h3>
-                    <h4 className="text-lg font-medium mb-2">{item.title}</h4>
-                    <p className="text-muted-foreground">{item.description}</p>
+                    <div className="text-2xl font-bold">{item.year}</div>
+                    <div className="font-semibold">{item.title}</div>
+                    <p className="text-muted-foreground text-sm">{item.description}</p>
                   </div>
                 </Card>
               </div>
@@ -119,54 +143,24 @@ export default function HakkimizdaPage() {
         </div>
       </div>
 
-      {/* Mission & Vision */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-        <Card>
-          <div className="flex items-start">
-            <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-full mr-4 text-green-600 dark:text-green-400 hover:scale-110 transition-transform duration-300">
-              <Target className="w-6 h-6" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-semibold mb-3">Misyonumuz</h2>
-              <p className="text-muted-foreground">
-                Müşterilerimize en kaliteli zemin araştırma hizmetlerini sunarak, 
-                yapıların güvenliğini sağlamak ve sektörde yenilikçi çözümler geliştirmek.
-              </p>
-            </div>
-          </div>
-        </Card>
-
-        <Card>
-          <div className="flex items-start">
-            <div className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-full mr-4 text-purple-600 dark:text-purple-400 hover:scale-110 transition-transform duration-300">
-              <Award className="w-6 h-6" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-semibold mb-3">Vizyonumuz</h2>
-              <p className="text-muted-foreground">
-                Türkiye'nin en güvenilir zemin araştırma firması olmak ve 
-                uluslararası standartlarda hizmet veren bir marka haline gelmek.
-              </p>
-            </div>
-          </div>
-        </Card>
-      </div>
-
-      {/* Team */}
+      {/* Team Section */}
       <div>
         <h2 className="text-2xl font-semibold mb-6 text-center">Ekibimiz</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {team.map((member, i) => (
-            <Card key={i} className="text-center hover:border-blue-500 hover:shadow-md transition-all duration-300">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
-                  <Users className="w-12 h-12" />
+            <Card key={i} className="h-full p-6">
+              <div className="flex flex-col items-center text-center space-y-3">
+                <div className="w-24 h-24 relative rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <Image
+                    src={`/avatars/avatar${i + 1}.svg`}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
+                <h3 className="font-semibold">{member.name}</h3>
+                <p className="text-muted-foreground text-sm">{member.title}</p>
               </div>
-              <h3 className="text-xl font-semibold">{member.name}</h3>
-              <p className="text-muted-foreground font-medium text-blue-600 dark:text-blue-400">
-                {member.title}
-              </p>
             </Card>
           ))}
         </div>

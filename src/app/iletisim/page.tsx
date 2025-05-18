@@ -1,6 +1,16 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import ContactForm from "@/components/contact-form";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "İletişim",
+  description: "Anadolu Zemin ile iletişime geçin. Zemin etüdü, sondaj ve laboratuvar hizmetleri için bize ulaşın.",
+  openGraph: {
+    title: "İletişim | Anadolu Zemin",
+    description: "Anadolu Zemin ile iletişime geçin",
+  }
+};
 
 export default function IletisimPage() {
   const contactMethods = [

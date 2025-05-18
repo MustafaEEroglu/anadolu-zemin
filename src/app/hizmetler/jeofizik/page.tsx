@@ -1,5 +1,15 @@
 import { Waves, Satellite, Radio } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jeofizik Ölçüm Hizmetleri",
+  description: "İleri teknoloji ile hassas jeofizik araştırma ve ölçüm hizmetleri. Sismik yöntemler, elektrik özdirenç ve mikrotremor ölçümleri.",
+  openGraph: {
+    title: "Jeofizik Ölçüm Hizmetleri | Anadolu Zemin",
+    description: "İleri teknoloji ile jeofizik araştırma ve ölçüm hizmetleri",
+  }
+};
 
 export default function JeofizikPage() {
   const methods = [

@@ -1,5 +1,15 @@
 import { TestTube2, Microscope, Activity } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Laboratuvar Analiz Hizmetleri",
+  description: "Akredite laboratuvarımızda kapsamlı zemin ve malzeme testleri. Fiziksel, mekanik ve kimyasal analizler ile detaylı sonuçlar.",
+  openGraph: {
+    title: "Laboratuvar Analiz Hizmetleri | Anadolu Zemin",
+    description: "Akredite laboratuvarımızda kapsamlı zemin ve malzeme testleri",
+  }
+};
 
 export default function LaboratuvarPage() {
   const tests = [
