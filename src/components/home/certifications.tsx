@@ -32,14 +32,14 @@ const Certifications = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {certifications.map((cert) => (
             <div
               key={cert.name}
               className="flex flex-col items-center justify-center"
             >
-              <div className="relative mb-4 h-24 w-full">
-                <div className="relative h-full w-full flex items-center justify-center p-2">
+              <div className="relative mb-2 sm:mb-4 h-16 sm:h-20 md:h-24 w-full">
+                <div className="relative h-full w-full flex items-center justify-center p-1 sm:p-2">
                   <Image
                     src={cert.logo}
                     alt={cert.name}
@@ -54,10 +54,10 @@ const Certifications = () => {
                 </div>
               </div>
               <div className="px-4">
-                <h3 className="text-center text-base font-medium text-foreground mb-2">
+                <h3 className="text-center text-sm sm:text-base font-medium text-foreground mb-1 sm:mb-2">
                   {cert.name}
                 </h3>
-                <p className="text-center text-sm text-muted-foreground leading-snug">
+                <p className="text-center text-xs sm:text-sm text-muted-foreground leading-snug">
                   {cert.description}
                 </p>
               </div>

@@ -51,7 +51,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center flex-1">
-            <div className="flex items-center justify-center gap-10 mx-auto mr-[100px]">
+            <div className="flex items-center justify-center gap-10 mx-auto">
               <Link
                 href="/"
                 className="text-sm font-medium text-foreground hover:text-primary transition-colors"
@@ -112,7 +112,7 @@ const Header = () => {
             </div>
             
             {/* Theme Toggle - Right Side */}
-            <div className="ml-auto">
+            <div>
               <ThemeToggle />
             </div>
           </div>
