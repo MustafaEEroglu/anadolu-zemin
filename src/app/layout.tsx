@@ -4,7 +4,8 @@ import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { ThemeProvider } from "@/context/theme-provider";
-import { FaWhatsapp } from "react-icons/fa";
+import WhatsAppFloat from "@/components/ui/whatsapp-float";
+import BackToTop from "@/components/ui/back-to-top";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,16 +41,9 @@ export default function RootLayout({
             <Footer />
           </div>
 
-          {/* WhatsApp Button */}
-          <a
-            href="https://wa.me/905312151617"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 dark:bg-[#128C7E] dark:focus:ring-[#128C7E] sm:h-14 sm:w-14"
-            aria-label="WhatsApp ile bize ulaşın"
-          >
-            <FaWhatsapp className="h-8 w-8" />
-          </a>
+          {/* Floating Buttons */}
+          <WhatsAppFloat />
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>
