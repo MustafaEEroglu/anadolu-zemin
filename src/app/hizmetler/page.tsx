@@ -1,6 +1,11 @@
-import { Card } from "@/components/ui/card";
-import { Drill, TestTube2, Waves, LayoutGrid } from "lucide-react";
+import { Drill, TestTube2, Waves, LayoutGrid, ArrowRight } from "lucide-react";
 import Link from "next/link";
+
+const Card = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+  <div className={`rounded-lg border bg-white dark:bg-gray-800 shadow-sm p-6 ${className}`}>
+    {children}
+  </div>
+);
 
 export default function HizmetlerPage() {
   const services = [
@@ -39,19 +44,27 @@ export default function HizmetlerPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {services.map((service) => (
-          <Link key={service.href} href={service.href}>
-            <Card className="p-6 hover:bg-accent transition-colors h-full">
-              <div className="flex flex-col items-center text-center">
-                <div className="bg-primary/10 p-3 rounded-full mb-4 text-primary">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+          <Card 
+            key={service.href}
+            className="hover:shadow-lg transition-all hover:border-blue-500/30 h-full flex flex-col"
+          >
+            <div className="flex flex-col items-center text-center flex-grow">
+              <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mb-4 text-blue-600 dark:text-blue-400">
+                {service.icon}
               </div>
-            </Card>
-          </Link>
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-muted-foreground mb-4">{service.description}</p>
+            </div>
+            <Link 
+              href={service.href}
+              className="mt-auto flex items-center justify-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+            >
+              Detaylı Bilgi
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </Card>
         ))}
       </div>
     </div>

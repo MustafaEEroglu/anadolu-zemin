@@ -57,6 +57,10 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      // SVG filter for dark mode
+      filter: {
+        'dark-invert': 'invert(1) brightness(1.5)',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

@@ -27,7 +27,7 @@ export default function ContactForm() {
     setIsSubmitting(true)
     
     try {
-      // Burada form verilerini API'ye gönderebilirsiniz
+      // Form submission logic here
       console.log("Form submitted:", formData)
       setIsSuccess(true)
     } catch (error) {
@@ -38,9 +38,8 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-1">Ad Soyad</label>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="relative">
         <Input
           id="name"
           name="name"
@@ -48,11 +47,17 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={handleChange}
+          className="peer pt-6 px-4 pb-2"
         />
+        <label 
+          htmlFor="name" 
+          className="absolute left-4 top-2 text-sm text-muted-foreground transition-all peer-focus:text-primary peer-focus:text-xs peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:top-2"
+        >
+          Ad Soyad
+        </label>
       </div>
       
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+      <div className="relative">
         <Input
           id="email"
           name="email"
@@ -60,11 +65,17 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={handleChange}
+          className="peer pt-6 px-4 pb-2"
         />
+        <label 
+          htmlFor="email" 
+          className="absolute left-4 top-2 text-sm text-muted-foreground transition-all peer-focus:text-primary peer-focus:text-xs peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:top-2"
+        >
+          Email Adresi
+        </label>
       </div>
 
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-1">Mesajınız</label>
+      <div className="relative">
         <Textarea
           id="message"
           name="message"
@@ -72,7 +83,14 @@ export default function ContactForm() {
           rows={5}
           value={formData.message}
           onChange={handleChange}
+          className="peer pt-8 px-4 pb-2"
         />
+        <label 
+          htmlFor="message" 
+          className="absolute left-4 top-3 text-sm text-muted-foreground transition-all peer-focus:text-primary peer-focus:text-xs peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:top-3"
+        >
+          Mesajınız
+        </label>
       </div>
 
       <Button type="submit" disabled={isSubmitting} className="w-full">
@@ -80,7 +98,7 @@ export default function ContactForm() {
       </Button>
 
       {isSuccess && (
-        <div className="p-3 bg-green-100 text-green-800 rounded-md">
+        <div className="p-3 bg-green-100 text-green-800 rounded-md dark:bg-green-900/30 dark:text-green-400">
           Mesajınız başarıyla gönderildi. En kısa sürede dönüş yapacağız.
         </div>
       )}

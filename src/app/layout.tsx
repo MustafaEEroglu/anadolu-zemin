@@ -32,8 +32,8 @@ export default function RootLayout({
 
           <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
             <Header />
-            <main id="main-content" className="min-h-[calc(100vh-9rem)] py-4 sm:py-6 md:py-8">
-              <div className="container">
+            <main id="main-content" className="min-h-[calc(100vh-9rem)] py-4 md:py-6 lg:py-8">
+              <div className="container px-4 sm:px-6 lg:px-8 max-w-screen-xl">
                 {children}
               </div>
             </main>
@@ -45,7 +45,7 @@ export default function RootLayout({
             href="https://wa.me/905312151617"
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-4 left-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 dark:bg-[#128C7E] dark:focus:ring-[#128C7E]"
+            className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 dark:bg-[#128C7E] dark:focus:ring-[#128C7E] sm:h-14 sm:w-14"
             aria-label="WhatsApp ile bize ulaşın"
           >
             <FaWhatsapp className="h-8 w-8" />
