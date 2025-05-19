@@ -4,6 +4,7 @@ import Services from "@/components/home/services"
 import WhyUs from "@/components/home/why-us"
 import Testimonials from "@/components/home/testimonials"
 import LatestReports from "@/components/home/latest-reports"
+import Gallery from "@/components/home/gallery"
 import { SectionDivider } from "@/components/ui/section-divider"
 import { Metadata } from "next"
 import Script from "next/script"
@@ -47,6 +48,8 @@ export default function Home() {
       <Services />
       <SectionDivider />
       <WhyUs />
+      <SectionDivider />
+      <Gallery />
       <SectionDivider />
       <Testimonials />
       <SectionDivider />
