@@ -22,7 +22,9 @@ export default function Image({
       "relative overflow-hidden",
       isLoading && "animate-pulse bg-muted",
       wrapperClassName
-    )}>
+    )}
+    role="img"
+    aria-label={alt}>
       <NextImage
         className={cn(
           "transition-opacity duration-300",
@@ -31,10 +33,14 @@ export default function Image({
         )}
         alt={alt}
         onLoadingComplete={() => setIsLoading(false)}
+        aria-hidden={isLoading}
+        loading={props.priority ? "eager" : "lazy"}
         {...props}
       />
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center"
+          role="status"
+          aria-label="Loading image">
           <Loading size="sm" />
         </div>
       )}

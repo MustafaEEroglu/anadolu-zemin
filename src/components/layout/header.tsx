@@ -1,37 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X } from "lucide-react";
+import { services } from "@/config/services";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const services = [
-    {
-      title: "Zemin Etüdü",
-      description: "Detaylı zemin araştırması ve analizi hizmetleri",
-      href: "/hizmetler/zemin-etudu",
-    },
-    {
-      title: "Sondaj",
-      description: "Modern ekipmanlarla profesyonel sondaj hizmetleri",
-      href: "/hizmetler/sondaj",
-    },
-    {
-      title: "Laboratuvar Analizleri",
-      description: "Kapsamlı zemin ve malzeme testleri",
-      href: "/hizmetler/laboratuvar",
-    },
-    {
-      title: "Jeofizik Ölçümler",
-      description: "İleri teknoloji ile jeofizik araştırmalar",
-      href: "/hizmetler/jeofizik",
-    },
-  ];
-  
+  const mobileMenu = useMemo(() => {
+    return (
+      <div className={`lg:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
+        <nav className="fixed inset-0 z-40 bg-background/95 backdrop-blur-sm">
+          <div className="fixed right-4 top-4">
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="rounded-lg p-2 text-foreground hover:bg-accent"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+          <div className="flex min-h-screen flex-col items-center justify-center space-y-4">
+            {services.map((service) => (
+              <Link
+                key={service.title}
+                href={service.href}
+                className="text-lg font-medium hover:text-primary"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {service.title}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      </div>
+    );
+  }, [mobileMenuOpen]);
+
   return (
     <div className="fixed top-2 sm:top-8 z-30 w-full mt-2 sm:mt-4">
       <div className="container mx-auto px-2 sm:px-6 lg:px-8 max-w-screen-xl">
@@ -90,17 +97,17 @@ const Header = () => {
               </div>
 
               <Link
-                href="/raporlar"
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-              >
-                Raporlar
-              </Link>
-
-              <Link
                 href="/hakkimizda"
                 className="text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 Hakkımızda
+              </Link>
+
+              <Link
+                href="/calisma-galerimiz"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Çalışma Galerimiz
               </Link>
 
               <Link
@@ -137,84 +144,7 @@ const Header = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden fixed inset-0 z-40 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-        <div className="fixed top-4 sm:top-6 inset-x-2 sm:inset-x-4 rounded-2xl bg-white/90 backdrop-blur-md shadow-lg p-4 sm:p-6 dark:bg-background max-w-screen-xl mx-auto">
-          <div className="flex justify-end mb-2 sm:mb-4">
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-1 sm:p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
-              aria-label="Close menu"
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-          
-          <nav className="flex flex-col space-y-2 sm:space-y-4">
-            <Link
-              href="/"
-              className="px-3 py-1.5 sm:px-4 sm:py-2 text-base sm:text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Anasayfa
-            </Link>
-
-            <div>
-              <button
-                className="w-full flex justify-between items-center px-3 py-1.5 sm:px-4 sm:py-2 text-base sm:text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                Hizmetler
-                <svg className={`h-5 w-5 transition-transform ${mobileMenuOpen ? 'rotate-180' : ''}`} 
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              <div className={`pl-3 sm:pl-4 mt-1 sm:mt-2 space-y-1 sm:space-y-2 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-                {services.map((service) => (
-                  <Link
-                    key={service.title}
-                    href={service.href}
-                    className="block px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {service.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <Link
-              href="/raporlar"
-              className="px-4 py-2 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Raporlar
-            </Link>
-
-            <Link
-              href="/hakkimizda"
-              className="px-4 py-2 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Hakkımızda
-            </Link>
-
-            <Link
-              href="/iletisim"
-              className="px-4 py-2 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              İletişim
-            </Link>
-          </nav>
-
-          <div className="mt-8 px-4">
-            <ThemeToggle />
-          </div>
-        </div>
-      </div>
+      {mobileMenu}
     </div>
   );
 };

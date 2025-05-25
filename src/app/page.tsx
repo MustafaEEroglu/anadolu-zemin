@@ -1,13 +1,29 @@
-import Hero from "@/components/home/hero"
-import Certifications from "@/components/home/certifications"
-import Services from "@/components/home/services"
-import WhyUs from "@/components/home/why-us"
-import Testimonials from "@/components/home/testimonials"
-import LatestReports from "@/components/home/latest-reports"
-import Gallery from "@/components/home/gallery"
-import { SectionDivider } from "@/components/ui/section-divider"
+import { Suspense } from "react"
+import dynamic from "next/dynamic"
 import { Metadata } from "next"
 import Script from "next/script"
+import Loading from "@/components/ui/loading"
+
+// Static imports for critical components
+import Hero from "@/components/home/hero"
+import { SectionDivider } from "@/components/ui/section-divider"
+
+// Dynamic imports for non-critical components
+const Certifications = dynamic(() => import("@/components/home/certifications"), {
+  loading: () => <Loading />
+})
+const Services = dynamic(() => import("@/components/services"), {
+  loading: () => <Loading />
+})
+const WhyUs = dynamic(() => import("@/components/home/why-us"), {
+  loading: () => <Loading />
+})
+const Gallery = dynamic(() => import("@/components/home/gallery"), {
+  loading: () => <Loading />
+})
+const Testimonials = dynamic(() => import("@/components/home/testimonials"), {
+  loading: () => <Loading />
+})
 
 export const metadata: Metadata = {
   title: "Anadolu Zemin | Profesyonel Zemin Etüdü ve Sondaj Hizmetleri",
@@ -43,17 +59,25 @@ export default function Home() {
       />
       <Hero />
       <SectionDivider />
-      <Certifications />
+      <Suspense fallback={<Loading />}>
+        <Certifications />
+      </Suspense>
       <SectionDivider />
-      <Services />
+      <Suspense fallback={<Loading />}>
+        <Services />
+      </Suspense>
       <SectionDivider />
-      <WhyUs />
+      <Suspense fallback={<Loading />}>
+        <WhyUs />
+      </Suspense>
       <SectionDivider />
-      <Gallery />
+      <Suspense fallback={<Loading />}>
+        <Gallery />
+      </Suspense>
       <SectionDivider />
-      <Testimonials />
-      <SectionDivider />
-      <LatestReports />
+      <Suspense fallback={<Loading />}>
+        <Testimonials />
+      </Suspense>
     </>
   )
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Linkedin, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -13,18 +13,18 @@ const Footer = () => {
             <h3 className="mb-4 text-lg font-semibold text-foreground">Kurumsal</h3>
             <ul className="space-y-2">
               <li>
+                <Link href="/" className="footer-link">
+                  Anasayfa
+                </Link>
+              </li>
+              <li>
                 <Link href="/hakkimizda" className="footer-link">
                   Hakkımızda
                 </Link>
               </li>
               <li>
-                <Link href="/hizmetler" className="footer-link">
-                  Hizmetlerimiz
-                </Link>
-              </li>
-              <li>
-                <Link href="/raporlar" className="footer-link">
-                  Raporlar
+                <Link href="/calisma-galerimiz" className="footer-link">
+                  Çalışma Galerimiz
                 </Link>
               </li>
               <li>
@@ -68,14 +68,13 @@ const Footer = () => {
             <ul className="space-y-2 sm:space-y-4">
               <li className="flex items-start gap-2 sm:space-x-3 footer-contact-item">
                 <MapPin className="h-5 w-5 shrink-0 text-muted-foreground" />
-                <span className="text-muted-foreground">Örnek Mahallesi, Örnek Sokak No:123 Ankara/Türkiye</span>
+                <span className="text-muted-foreground">Şeyh Bayram, Cevher Sokağı No: 12-A, 44090 Yeşilyurt/Malatya</span>
               </li>
               <li className="flex items-center space-x-3 footer-contact-item">
                 <Phone className="h-5 w-5 shrink-0 text-muted-foreground" />
-                <span className="text-muted-foreground">+90 (312) 123 45 67</span>
+                <span className="text-muted-foreground">+90 531 215 16 17</span>
               </li>
               <li className="flex items-center space-x-3 footer-contact-item">
-                <Mail className="h-5 w-5 shrink-0 text-muted-foreground" />
                 <span className="text-muted-foreground">info@anadoluzemin.com</span>
               </li>
             </ul>
@@ -86,15 +85,7 @@ const Footer = () => {
             <h3 className="mb-4 text-lg font-semibold text-foreground">Sosyal Medya</h3>
             <div className="flex gap-3 sm:space-x-4">
               <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-primary"
-              >
-                <Facebook className="h-6 w-6 footer-social-icon" />
-              </a>
-              <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/anadoluzeminlab/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-primary"
@@ -102,7 +93,7 @@ const Footer = () => {
                 <Instagram className="h-6 w-6 footer-social-icon" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://tr.linkedin.com/in/burak-c%C3%BCcemen-0a471a11a"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-primary"
@@ -115,7 +106,7 @@ const Footer = () => {
 
         <div className="mt-6 sm:mt-8 border-t border-border pt-6 sm:pt-8 text-center footer-copyright">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Anadolu Zemin. Tüm hakları saklıdır.
+            © {new Date().getFullYear()} Anadolu Zemin. Tüm hakları saklıdır. Mustafa Eroğlu tarafından yapıldı.
           </p>
           
         </div>

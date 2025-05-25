@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useCallback, useMemo, useState } from "react"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Button } from "./ui/button"
@@ -16,7 +16,6 @@ interface FormErrors {
   name?: string
   email?: string
   message?: string
-  submitError?: string
 }
 
 export default function ContactForm() {
@@ -29,73 +28,73 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {}
+  const validateForm = useCallback((): boolean => {
+    const newErrors: FormErrors = {};
     
     if (!formData.name.trim()) {
-      newErrors.name = "İsim alanı zorunludur"
+      newErrors.name = "İsim alanı zorunludur";
     }
     
     if (!formData.email.trim()) {
-      newErrors.email = "E-posta alanı zorunludur"
+      newErrors.email = "E-posta alanı zorunludur";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Geçerli bir e-posta adresi giriniz"
+      newErrors.email = "Geçerli bir e-posta adresi giriniz";
     }
     
     if (!formData.message.trim()) {
-      newErrors.message = "Mesaj alanı zorunludur"
+      newErrors.message = "Mesaj alanı zorunludur";
     }
     
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }, [formData]);
 
-  const handleChange = (
+  const handleChange = useCallback((
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
+    const { name, value } = e.target;
+    setFormData(prev => ({
       ...prev,
       [name]: value
-    }))
+    }));
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({
+      setErrors(prev => ({
         ...prev,
         [name]: undefined
-      }))
+      }));
     }
-  }
+  }, [errors]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault();
     
     if (!validateForm()) {
-      return
+      return;
     }
     
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     
     try {
       // Replace with your actual form submission logic
-      await new Promise((resolve) => setTimeout(resolve, 1500)) // Simulated API call
-      setIsSuccess(true)
-      setFormData({ name: "", email: "", message: "" })
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
       
       // Reset success message after 5 seconds
       setTimeout(() => {
-        setIsSuccess(false)
-      }, 5000)
+        setIsSuccess(false);
+      }, 5000);
     } catch (error) {
-      console.error("Error submitting form:", error)
-      setErrors((prev) => ({
-        ...prev,
-        submitError: "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz."
-      }))
+      console.error("Form submission error:", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  }, [validateForm]);
+
+  const isFormEmpty = useMemo(() => {
+    return !formData.name && !formData.email && !formData.message;
+  }, [formData]);
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
@@ -175,10 +174,6 @@ export default function ContactForm() {
           </p>
         )}
       </div>
-
-      {errors.submitError && (
-        <p className="text-sm text-red-500">{errors.submitError}</p>
-      )}
 
       {isSuccess && (
         <p className="text-sm text-green-500">

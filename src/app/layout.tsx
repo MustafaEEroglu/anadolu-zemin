@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/context/theme-provider";
 import { ErrorBoundary } from "@/components/error-boundary";
@@ -53,6 +54,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Anadolu Zemin",
+    "url": "https://www.anadoluzemin.com",
+    "description": "Anadolu Zemin olarak, profesyonel zemin etüdü, sondaj ve laboratuvar hizmetleri sunuyoruz. Modern ekipmanlar ve uzman kadromuzla hizmetinizdeyiz.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.anadoluzemin.com/hizmetler/{search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="tr" suppressHydrationWarning className="scroll-smooth">
       <body className={`${inter.className} antialiased`}>
@@ -73,6 +90,11 @@ export default function RootLayout({
           </ErrorBoundary>
         </ThemeProvider>
         <Analytics />
+        <Script
+          id="website-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
+        />
       </body>
     </html>
   );

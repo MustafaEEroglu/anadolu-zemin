@@ -39,18 +39,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
-    },
-    {
+    },    {
       url: `${baseUrl}/hizmetler/jeofizik`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/raporlar`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.6,
     },
     {
       url: `${baseUrl}/iletisim`,

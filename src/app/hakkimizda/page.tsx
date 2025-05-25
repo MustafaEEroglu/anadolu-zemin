@@ -10,53 +10,17 @@ export default function HakkimizdaPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  const timeline = [
-    {
-      year: "1990",
-      title: "Kuruluş",
-      description: "Ankara'da küçük bir ekip ile kurulduk",
-      icon: <Building2 className="w-6 h-6" />
-    },
-    {
-      year: "2000", 
-      title: "Büyüme",
-      description: "İlk şubemizi İstanbul'da açtık",
-      icon: <MapPin className="w-6 h-6" />
-    },
-    {
-      year: "2010",
-      title: "Akreditasyon",
-      description: "Uluslararası akreditasyonlarımızı aldık",
-      icon: <Award className="w-6 h-6" />
-    },
-    {
-      year: "2023",
-      title: "Bugün",
-      description: "Türkiye'nin önde gelen zemin firmasıyız",
-      icon: <Clock className="w-6 h-6" />
-    }
-  ];
 
   const team = [
     {
-      name: "Ahmet Yılmaz",
+      name: "Burak Cücemen",
       title: "Genel Müdür",
-      photo: "/team/ahmet.jpg"
+      photo: "/avatars/avatar1.svg"
     },
     {
-      name: "Ayşe Demir",
-      title: "Proje Müdürü",
-      photo: "/team/ayse.jpg" 
-    },
-    {
-      name: "Mehmet Kaya",
-      title: "Baş Mühendis",
-      photo: "/team/mehmet.jpg"
-    },
-    {
-      name: "Fatma Şahin",
-      title: "Laboratuvar Sorumlusu",
-      photo: "/team/fatma.jpg"
+      name: "Selim Irmak",
+      title: "Teknik Müdür",
+      photo: "/avatars/avatar2.svg"
     }
   ];
 
@@ -82,7 +46,7 @@ export default function HakkimizdaPage() {
       <div className="text-center mb-12">
         <h1 className="text-3xl font-bold mb-4">Hakkımızda</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          30 yılı aşkın tecrübemizle sektörde lider konumdayız
+          Yenilikçi yaklaşımımız ve uzman ekibimizle sektörde fark yaratıyoruz
         </p>
       </div>
 
@@ -113,40 +77,11 @@ export default function HakkimizdaPage() {
         </Card>
       </div>
 
-      {/* Timeline - Simplified centered version */}
-      <div className="mb-16">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Tarihçemiz</h2>
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-6xl">
-            {timeline.map((item, i) => (
-              <div 
-                key={i} 
-                ref={el => { itemsRef.current[i] = el; }}
-              >
-                <Card className="h-full p-6">
-                  <div className="flex flex-col items-center text-center space-y-3">
-                    <div className={`p-3 rounded-full mb-2 transition-all duration-300 ${
-                      i <= activeIndex 
-                        ? 'bg-blue-600 text-white dark:bg-blue-400 dark:text-gray-900'
-                        : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400'
-                    }`}>
-                      {item.icon}
-                    </div>
-                    <div className="text-2xl font-bold">{item.year}</div>
-                    <div className="font-semibold">{item.title}</div>
-                    <p className="text-muted-foreground text-sm">{item.description}</p>
-                  </div>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* Team Section */}
       <div>
         <h2 className="text-2xl font-semibold mb-6 text-center">Ekibimiz</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           {team.map((member, i) => (
             <Card key={i} className="h-full p-6">
               <div className="flex flex-col items-center text-center space-y-3">

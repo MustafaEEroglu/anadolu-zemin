@@ -29,27 +29,27 @@ const Hero = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const backgroundPatterns = Array.from({ length: 20 }).map((_, i) => (
+  // Azaltılmış pattern sayısı ve basitleştirilmiş animasyon
+  const backgroundPatterns = Array.from({ length: 10 }).map((_, i) => (
     <motion.div
       key={i}
       className="absolute"
       style={{
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
-        width: `${Math.random() * 30 + 10}px`,
-        height: `${Math.random() * 30 + 10}px`,
+        width: '20px',
+        height: '20px',
         background: isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.03)',
         borderRadius: '50%',
         filter: 'blur(2px)',
       }}
-      initial={{ scale: 0, rotate: 0 }}
+      initial={{ scale: 0 }}
       animate={{
         scale: [1, 1.2, 1],
-        rotate: [0, 180, 360],
-        y: [0, Math.random() * 20 - 10],
+        y: [0, 10, 0],
       }}
       transition={{
-        duration: Math.random() * 5 + 3,
+        duration: 4,
         repeat: Infinity,
         ease: "linear",
       }}
@@ -58,16 +58,17 @@ const Hero = () => {
 
   return (
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden flex items-center">
-      {/* Background Image with Next.js Image optimization */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image with Next.js Image optimization */}      <div className="absolute inset-0 z-0">
         <Image
           src="/hero-bg.jpg"
           alt="Zemin Etüdü ve İnşaat Sahası"
           fill
           className="object-cover object-center transform scale-[1.02] brightness-[0.85]"
           priority
-          sizes="100vw"
-          quality={85}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 1024px, 1920px"
+          quality={90}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJyEkLzgvLy4vOTA2PTo2NjY+PDw8Pj5IS0tIVUtLVVVVVVVVVVVVVVX/2wBDARUXFyAeIB4dHh4iIiIiKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQUGB//EACUQAAIBAwIFBQAAAAAAAAAAAAECAwAEEQUhBhITFEEVIjFRgf/EABYBAQEBAAAAAAAAAAAAAAAAAAQFA//EACARAAIBAwQDAQAAAAAAAAAAAAECAAMRBAUSITEUQVHw/9oADAMBAAIRAxEAPwBZ6jf6hbzSpIEt4wwidPJI3JNT6hqd1Z3ZntmjCGMMOZQckHOPPikVvLHc3kVrBvLM2i7DyQucVL9L1D+qH+hj5pVKaVHuiHsFHU2r1q1amEDe5MvmhmnqN5Lcz3HXSGQK8QVeXA22HxXahWa0CKMqpHEy9UzMxDNkz//Z"
         />
       </div>
 
@@ -134,7 +135,7 @@ const Hero = () => {
               </motion.p>
 
               <motion.div
-                className="mt-8 xs:mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 xs:gap-5 sm:gap-6 justify-center w-full sm:w-auto"
+                className="mt-8 xs:mt-10 sm:mt-12 flex justify-center w-full"
                 variants={itemVariants}
               >
                 <Link href="/iletisim" className="group">
@@ -146,26 +147,6 @@ const Hero = () => {
                     <span className="absolute inset-0 bg-gradient-to-r from-primary to-primary/90 group-hover:from-primary/90 group-hover:to-primary transition-all duration-300" />
                     <span className="relative z-10 flex items-center justify-center gap-2 text-primary-foreground">
                       Hizmet Al
-                      <motion.span
-                        className="group-hover:translate-x-1"
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        &rarr;
-                      </motion.span>
-                    </span>
-                  </motion.div>
-                </Link>
-                
-                <Link href="/raporlar" className="group">
-                  <motion.div
-                    className="px-10 py-4 text-lg font-semibold rounded-full relative overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl border border-accent/20"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-card to-accent/80 opacity-80 group-hover:opacity-100 transition-all duration-300" />
-                    <span className="relative z-10 flex items-center justify-center gap-2 text-foreground">
-                      Rapor Talep Et
                       <motion.span
                         className="group-hover:translate-x-1"
                         animate={{ x: [0, 5, 0] }}

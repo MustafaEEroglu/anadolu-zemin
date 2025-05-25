@@ -143,15 +143,23 @@ export default function Gallery() {
     const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
     const modalRef = useRef<HTMLDivElement>(null);
     const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+    const [visibleItems, setVisibleItems] = useState(3);    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setSelectedItem(null);
+            }
+        };
 
-    useEffect(() => {
         if (selectedItem) {
             document.body.style.overflow = 'hidden';
+            document.addEventListener('keydown', handleEscape);
         } else {
             document.body.style.overflow = 'unset';
         }
+
         return () => {
             document.body.style.overflow = 'unset';
+            document.removeEventListener('keydown', handleEscape);
         };
     }, [selectedItem]);
 
@@ -180,7 +188,7 @@ export default function Gallery() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {mediaItems.map((item, index) => (
+                    {mediaItems.slice(0, visibleItems).map((item, index) => (
                         <motion.div
                             key={item.id}
                             initial={{ opacity: 0, y: 20 }}
@@ -198,13 +206,16 @@ export default function Gallery() {
                                 onMouseLeave={() => setHoveredItem(null)}
                             >
                                 <div className="relative aspect-[4/3] overflow-hidden">
-                                    {item.type === 'image' ? (
-                                        <Image
+                                    {item.type === 'image' ? (                                        <Image
                                             src={item.src}
                                             alt={item.alt}
                                             fill
                                             className="object-cover transition-all duration-500 group-hover:scale-110"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            loading="lazy"
+                                            quality={85}
+                                            placeholder="blur"
+                                            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJyEkLzgvLy4vOTA2PTo2NjY+PDw8Pj5IS0tIVUtLVVVVVVVVVVVVVVX/2wBDARUXFyAeIB4dHh4iIiIiKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQUGB//EACUQAAIBAwIFBQAAAAAAAAAAAAECAwAEEQUhBhITFEEVIjFRgf/EABYBAQEBAAAAAAAAAAAAAAAAAAQFA//EACARAAIBAwQDAQAAAAAAAAAAAAECAAMRBAUSITEUQVHw/9oADAMBAAIRAxEAPwBZ6jf6hbzSpIEt4wwidPJI3JNT6hqd1Z3ZntmjCGMMOZQckHOPPikVvLHc3kVrBvLM2i7DyQucVL9L1D+qH+hj5pVKaVHuiHsFHU2r1q1amEDe5MvmhmnqN5Lcz3HXSGQK8QVeXA22HxXahWa0CKMqpHEy9UzMxDNkz//Z"
                                         />
                                     ) : (
                                         <video
@@ -233,6 +244,17 @@ export default function Gallery() {
                         </motion.div>
                     ))}
                 </div>
+
+                {visibleItems < mediaItems.length && (
+                    <div className="mt-12 text-center">
+                        <button
+                            onClick={() => setVisibleItems(prev => Math.min(prev + 3, mediaItems.length))}
+                            className="px-6 py-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors border border-primary/20"
+                        >
+                            Daha Fazla Göster
+                        </button>
+                    </div>
+                )}
             </div>
 
             <AnimatePresence>
