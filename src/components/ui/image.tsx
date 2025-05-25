@@ -24,7 +24,10 @@ export default function Image({
       wrapperClassName
     )}
     role="img"
-    aria-label={alt}>
+    aria-label={alt}
+    itemScope
+    itemType="https://schema.org/ImageObject"
+    itemProp="image">
       <NextImage
         className={cn(
           "transition-opacity duration-300",

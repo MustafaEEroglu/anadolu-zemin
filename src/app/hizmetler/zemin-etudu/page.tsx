@@ -4,30 +4,44 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Zemin Etüdü Hizmetleri",
-  description: "Profesyonel zemin etüdü hizmetleri, SPT testleri, presiyometre testleri ve detaylı arazi deneyleri ile güvenilir sonuçlar.",
+  title: "Malatya Zemin Etüdü Hizmetleri | Jeoteknik Etüt ve Arazi Deneyleri",
+  description: "Malatya'da uzman ekibimizle zemin etüdü, SPT testleri, presiyometre testleri ve detaylı arazi deneyleri. Depreme dayanıklı yapılar için güvenilir zemin analizi raporları.",
+  keywords: "Malatya zemin etüdü, jeoteknik etüt Malatya, SPT testi, presiyometre testi, zemin analizi, arazi deneyleri, deprem analizi Malatya",
   openGraph: {
-    title: "Zemin Etüdü Hizmetleri | Anadolu Zemin",
-    description: "Profesyonel zemin etüdü hizmetleri ve kapsamlı zemin araştırmaları",
+    title: "Malatya Zemin Etüdü Hizmetleri | Anadolu Zemin",
+    description: "Malatya'da profesyonel zemin etüdü ve jeoteknik etüt hizmetleri. Depreme dayanıklı yapılar için kapsamlı zemin araştırmaları ve raporlama.",
+    images: [
+      {
+        url: "https://www.anadoluzemin.com/gallery/zemin-etut-sondaj-malatya-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Malatya zemin etüdü çalışması"
+      }
+    ]
   }
 };
 
-export default function ZeminEtuduPage() {
-  const structuredData = {
+export default function ZeminEtuduPage() {  const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Zemin Etüdü Hizmetleri",
+    "name": "Malatya Zemin Etüdü Hizmetleri",
     "provider": {
       "@type": "Organization",
-      "name": "Anadolu Zemin",
-      "url": "https://www.anadoluzemin.com"
+      "name": "Anadolu Zemin Malatya",
+      "url": "https://www.anadoluzemin.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Malatya",
+        "addressRegion": "Malatya",
+        "addressCountry": "TR"
+      }
     },
     "areaServed": {
-      "@type": "Country",
-      "name": "Türkiye"
+      "@type": "City",
+      "name": "Malatya"
     },
-    "description": "Profesyonel zemin etüdü hizmetleri, SPT testleri, presiyometre testleri ve detaylı arazi deneyleri ile güvenilir sonuçlar.",
-    "serviceType": ["Zemin Etüdü", "SPT Testi", "Presiyometre Testi", "Arazi Deneyleri"],
+    "description": "Malatya'da profesyonel zemin etüdü hizmetleri, SPT testleri, presiyometre testleri ve detaylı arazi deneyleri ile depreme dayanıklı yapılar için güvenilir zemin analizi raporları sunuyoruz.",
+    "serviceType": ["Zemin Etüdü", "Jeoteknik Etüt", "SPT Testi", "Presiyometre Testi", "Arazi Deneyleri", "Deprem Analizi"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Zemin Etüdü Hizmetleri",

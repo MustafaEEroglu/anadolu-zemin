@@ -26,8 +26,9 @@ const Testimonials = dynamic(() => import("@/components/home/testimonials"), {
 })
 
 export const metadata: Metadata = {
-  title: "Anadolu Zemin | Profesyonel Zemin Etüdü ve Sondaj Hizmetleri",
-  description: "Anadolu Zemin olarak, profesyonel zemin etüdü, sondaj ve laboratuvar hizmetleri sunuyoruz. Modern ekipmanlar ve uzman kadromuzla hizmetinizdeyiz.",
+  title: "Malatya Zemin Etüdü ve Sondaj | Anadolu Zemin",
+  description: "Malatya'nın önde gelen zemin etüdü ve sondaj firması. 20 yılı aşkın tecrübemizle zemin etüdü, sondaj, laboratuvar ve jeofizik ölçüm hizmetleri sunuyoruz. Depreme dayanıklı yapılar için güvenilir çözümler.",
+  keywords: "Malatya zemin etüdü, Malatya sondaj, zemin analizi, jeofizik ölçüm, laboratuvar testleri, deprem analizi",
 }
 
 export default function Home() {
@@ -50,12 +51,47 @@ export default function Home() {
     ]
   }
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Anadolu Zemin Malatya",
+    "image": "https://www.anadoluzemin.com/logo.png",
+    "description": "Malatya'nın önde gelen zemin etüdü ve sondaj firması. Depreme dayanıklı yapılar için profesyonel zemin analizi hizmetleri.",
+    "@id": "https://www.anadoluzemin.com",
+    "url": "https://www.anadoluzemin.com",
+    "telephone": "+905555555555",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Malatya Merkez",
+      "addressLocality": "Malatya",
+      "addressRegion": "Malatya",
+      "postalCode": "44000",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.3554,
+      "longitude": 38.3335
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Malatya"
+    },
+    "priceRange": "₺₺",
+    "servesCuisine": "Zemin Etüdü ve Sondaj Hizmetleri"
+  };
+
   return (
     <>
       <Script
         id="structured-data"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <Hero />
       <SectionDivider />

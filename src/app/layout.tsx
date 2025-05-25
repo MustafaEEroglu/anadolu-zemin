@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   title: {
     template: "%s | Anadolu Zemin",
     default: "Anadolu Zemin | Profesyonel Zemin Etüdü ve Sondaj Hizmetleri",
-  },
-  description: "Anadolu Zemin olarak, profesyonel zemin etüdü, sondaj ve laboratuvar hizmetleri sunuyoruz. Modern ekipmanlar ve uzman kadromuzla hizmetinizdeyiz.",
+  },  description: "Malatya'da profesyonel zemin etüdü, sondaj ve laboratuvar hizmetleri sunan lider kuruluş. Jeolojik etüt, zemin analizi ve deprem risk analizi konularında uzman kadromuzla yanınızdayız.",
+  keywords: "Malatya zemin etüdü, zemin analizi Malatya, sondaj hizmetleri, zemin laboratuvar testleri, jeolojik etüt Malatya, deprem analizi",
   openGraph: {
-    title: "Anadolu Zemin",
-    description: "Profesyonel Zemin Etüdü ve Sondaj Hizmetleri",
+    title: "Anadolu Zemin | Malatya Zemin Etüdü ve Sondaj Hizmetleri",
+    description: "Malatya'da profesyonel zemin etüdü, sondaj ve laboratuvar hizmetleri. 20 yılı aşkın tecrübemizle zemin analizi ve etüt hizmetleri sunuyoruz.",
     url: "https://www.anadoluzemin.com",
-    siteName: "Anadolu Zemin",
+    siteName: "Anadolu Zemin Malatya",
     locale: "tr_TR",
     type: "website",
   },
