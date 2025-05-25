@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Linkedin, MapPin, Phone } from "lucide-react";
+import { Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -75,6 +75,7 @@ const Footer = () => {
                 <span className="text-muted-foreground">+90 531 215 16 17</span>
               </li>
               <li className="flex items-center space-x-3 footer-contact-item">
+                <Mail className="h-5 w-5 shrink-0 text-muted-foreground" />
                 <span className="text-muted-foreground">info@anadoluzemin.com</span>
               </li>
             </ul>
@@ -115,4 +116,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;

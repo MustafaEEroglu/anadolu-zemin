@@ -21,18 +21,42 @@ const Header = () => {
             >
               <X className="h-6 w-6" />
             </button>
-          </div>
-          <div className="flex min-h-screen flex-col items-center justify-center space-y-4">
-            {services.map((service) => (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="text-lg font-medium hover:text-primary"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {service.title}
-              </Link>
-            ))}
+          </div>          <div className="flex min-h-screen flex-col items-center justify-center space-y-4">
+            <Link
+              href="/"
+              className="text-lg font-medium hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Anasayfa
+            </Link>
+            <Link
+              href="/hizmetler"
+              className="text-lg font-medium hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Hizmetler
+            </Link>
+            <Link
+              href="/hakkimizda"
+              className="text-lg font-medium hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Hakkımızda
+            </Link>
+            <Link
+              href="/calisma-galerimiz"
+              className="text-lg font-medium hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Çalışma Galerimiz
+            </Link>
+            <Link
+              href="/iletisim"
+              className="text-lg font-medium hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              İletişim
+            </Link>
           </div>
         </nav>
       </div>
